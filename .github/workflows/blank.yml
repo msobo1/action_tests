@@ -1,0 +1,24 @@
+name: Check sus actions
+
+on:
+  push:
+
+jobs:
+  Dependabot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+      - name: Dependabot Review
+        uses: actions/dependency-review-action@v3.0.1
+        with:
+          fail-on-severity: low
+      - uses: subosito/flutter-action@v2
+      - uses: c-hive/gha-yarn-cache@v2
+      - uses: EndBug/add-and-commit@v7.4.0
+      - uses: timheuer/base64-to-file@v1.2
+      - uses: google-github-actions/auth@v0
+      - uses: wzieba/Firebase-Distribution-Github-Action@v1
+      - uses: jsdaniell/create-json@1.1.2
+      - uses: pypa/gh-action-pypi-publish@release/v1
+      - uses: readmeio/github-readme-sync@v2
