@@ -1,5 +1,5 @@
 name: Check sus actions
-
+# test
 on:
   push:
 
@@ -9,6 +9,10 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
       - name: Dependabot Review
         uses: actions/dependency-review-action@v3.0.1
         with:
